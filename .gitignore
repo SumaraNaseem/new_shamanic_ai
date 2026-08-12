@@ -1,0 +1,4 @@
+node_modules/
+.next/
+public/assets/Vision_feed.gif
+tsconfig.tsbuildinfo

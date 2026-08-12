@@ -1,0 +1,275 @@
+@import "tailwindcss";
+
+:root {
+  --bg-void: #050807;
+  --bg-panel: rgba(8, 16, 12, 0.72);
+  --bg-panel-solid: #0a120e;
+  --border-glow: rgba(88, 255, 130, 0.22);
+  --border-dim: rgba(47, 122, 72, 0.45);
+  --green-core: #6bff8e;
+  --green-bright: #9dffb8;
+  --green-dim: #2f7a48;
+  --green-deep: #123c22;
+  --text-primary: #e8f5ec;
+  --text-muted: #8fb69d;
+  --text-dim: #5a7d68;
+  --text-faint: #3f6650;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--bg-void);
+  color: var(--text-primary);
+  height: 100%;
+  overflow: hidden;
+}
+
+.font-display {
+  font-family: "Cinzel", "Trajan Pro", "Times New Roman", Georgia, serif;
+  letter-spacing: 0.08em;
+}
+
+.font-mystic {
+  font-family: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+}
+
+.font-body {
+  font-family: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.glow-panel {
+  background: linear-gradient(
+    165deg,
+    rgba(18, 40, 28, 0.55) 0%,
+    rgba(6, 12, 9, 0.78) 100%
+  );
+  border: 1px solid var(--border-glow);
+  box-shadow:
+    0 0 0 1px rgba(107, 255, 142, 0.04) inset,
+    0 0 24px -8px rgba(107, 255, 142, 0.12),
+    0 12px 40px -16px rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.glow-panel-soft {
+  background: rgba(6, 14, 10, 0.55);
+  border: 1px solid var(--border-dim);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.text-glow {
+  text-shadow:
+    0 0 12px rgba(107, 255, 142, 0.55),
+    0 0 2px rgba(107, 255, 142, 0.8);
+}
+
+.asset-glow {
+  filter: drop-shadow(0 0 18px rgba(107, 255, 142, 0.35));
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+@keyframes pulse-slower {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+.animate-pulse-slower {
+  animation: pulse-slower 6s ease-in-out infinite;
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-rotate-slow {
+  animation: rotate-slow 60s linear infinite;
+}
+.animate-rotate-slow-rev {
+  animation: rotate-slow 90s linear infinite reverse;
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0.78;
+  }
+  50% {
+    opacity: 0.95;
+  }
+  55% {
+    opacity: 0.72;
+  }
+}
+.animate-flicker {
+  animation: flicker 3.5s ease-in-out infinite;
+}
+
+@keyframes drift-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.animate-drift {
+  animation: drift-y 5s ease-in-out infinite;
+}
+
+@keyframes wave-flow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.animate-wave {
+  animation: wave-flow 3s linear infinite;
+}
+
+@keyframes bar-pulse {
+  0%,
+  100% {
+    transform: scaleY(0.45);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+/* Active nav — glow travels OUTSIDE around the border only */
+@property --nav-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes nav-angle-spin {
+  to {
+    --nav-angle: 360deg;
+  }
+}
+
+.nav-active {
+  position: relative;
+  z-index: 0;
+  overflow: visible;
+  border-radius: 12px;
+  border: 1px solid rgba(107, 255, 142, 0.35);
+  background: linear-gradient(
+    165deg,
+    rgba(28, 52, 36, 0.98) 0%,
+    rgba(14, 28, 20, 0.96) 100%
+  );
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.5);
+}
+
+/* Soft outer glow ring (outside the button only) */
+.nav-active::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  z-index: -1;
+  border-radius: 16px;
+  padding: 6px;
+  background: conic-gradient(
+    from var(--nav-angle),
+    transparent 0deg,
+    transparent 250deg,
+    rgba(107, 255, 142, 0.03) 275deg,
+    rgba(107, 255, 142, 0.22) 305deg,
+    rgba(200, 255, 220, 0.4) 325deg,
+    rgba(107, 255, 142, 0.22) 345deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  filter: blur(3px);
+  animation: nav-angle-spin 2.6s linear infinite;
+  pointer-events: none;
+}
+
+/* Sharp neon trail on the outer edge of the border */
+.nav-active::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: 13px;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--nav-angle),
+    transparent 0deg,
+    transparent 250deg,
+    rgba(107, 255, 142, 0.08) 275deg,
+    rgba(107, 255, 142, 0.65) 305deg,
+    rgba(200, 255, 220, 0.85) 325deg,
+    rgba(107, 255, 142, 0.65) 345deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  filter: drop-shadow(0 0 2px rgba(107, 255, 142, 0.45));
+  animation: nav-angle-spin 2.6s linear infinite;
+  pointer-events: none;
+}
+
+.nav-active > * {
+  position: relative;
+  z-index: 1;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--green-dim);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+}
