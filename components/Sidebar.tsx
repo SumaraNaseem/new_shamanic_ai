@@ -101,11 +101,23 @@ function NavItem({
       className={`group relative flex w-full items-center gap-3 px-3.5 py-[11px] text-left text-[13px] ${
         active
           ? "nav-active font-medium text-[#f2fff6]"
-          : "rounded-lg text-[#8fb69d] hover:bg-white/[0.03] hover:text-[#d8ffe6]"
+          : "rounded-lg text-[#8fb69d] hover:bg-white/[0.03]"
       }`}
     >
-      <Icon size={16} className="shrink-0 text-current" strokeWidth={1.6} />
-      <span className="flex-1 tracking-wide">{label}</span>
+      <Icon
+        size={16}
+        className={`shrink-0 ${
+          active ? "text-[#f2fff6]" : "text-[#6ecf8a]"
+        }`}
+        strokeWidth={1.6}
+      />
+      <span
+        className={`flex-1 tracking-wide ${
+          !active ? "group-hover:text-[#d8ffe6]" : ""
+        }`}
+      >
+        {label}
+      </span>
       {!active && (
         <ChevronRight
           size={13}
