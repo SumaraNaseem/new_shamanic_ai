@@ -20,7 +20,7 @@ export default function Home() {
       {/* Background */}
       <div
         className="pointer-events-none absolute inset-0 bg-contain bg-center bg-no-repeat"
-        style={{ backgroundImage: "url(/assets/Shaman_eye.gif)" }}
+        style={{ backgroundImage: "url(https://dw0klemfhjkst.cloudfront.net/Shaman%20eye%20gif.gif)" }}
       />
 
       <Sidebar />

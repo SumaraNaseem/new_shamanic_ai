@@ -135,7 +135,7 @@ export function EnergyCenter() {
     <div className="glow-panel relative overflow-hidden rounded-xl">
       {/* Video background */}
       <video
-        src="/assets/feed_vision_vd.mp4"
+        src="https://dw0klemfhjkst.cloudfront.net/feed_vision_vd.mp4"
         autoPlay
         loop
         muted
