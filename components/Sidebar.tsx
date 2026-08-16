@@ -2,12 +2,6 @@
 
 import {
   Plus,
-  Home,
-  MessageSquare,
-  BookOpen,
-  Eye,
-  Sparkles,
-  FlaskConical,
   CloudMoon,
   FileText,
   BarChart3,
@@ -19,17 +13,24 @@ import {
   ScrollText,
   ChevronRight,
 } from "lucide-react";
+import { IoMdHome } from "react-icons/io";
+import { BiSolidConversation } from "react-icons/bi";
+import { GiGiftOfKnowledge } from "react-icons/gi";
+import { TbEyeCog } from "react-icons/tb";
+import { GiMeditation } from "react-icons/gi";
+import { GiFizzingFlask } from "react-icons/gi";
+
 import { ASSETS } from "@/lib/assets";
 import Image from "next/image";
 import { useState } from "react";
 
 const mainNav = [
-  { icon: Home, label: "Home" },
-  { icon: MessageSquare, label: "Conversations" },
-  { icon: BookOpen, label: "Knowledge" },
-  { icon: Eye, label: "Vision" },
-  { icon: Sparkles, label: "Meditations" },
-  { icon: FlaskConical, label: "Alchemy" },
+  { icon: IoMdHome, label: "Home" },
+  { icon: BiSolidConversation, label: "Conversations" },
+  { icon: GiGiftOfKnowledge, label: "Knowledge" },
+  { icon: TbEyeCog, label: "Vision" },
+  { icon: GiMeditation, label: "Meditations" },
+  { icon: GiFizzingFlask, label: "Alchemy" },
   { icon: CloudMoon, label: "Dreams" },
 ];
 
@@ -58,7 +59,7 @@ function EnergyWaveLayers() {
       <path
         d={energyWaveLine}
         fill="none"
-        stroke="#4c8a5e"
+        stroke="var(--green-wave-a)"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -67,7 +68,7 @@ function EnergyWaveLayers() {
       <path
         d={energyWaveLine}
         fill="none"
-        stroke="#6fa882"
+        stroke="var(--green-wave-b)"
         strokeWidth="1.1"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -98,29 +99,29 @@ function NavItem({
       type="button"
       onClick={onSelect}
       aria-current={active ? "page" : undefined}
-      className={`group relative flex w-full items-center gap-3 px-3.5 py-[11px] text-left text-[13px] ${
+      className={`group relative flex w-full items-center gap-4 px-4 py-3.5 text-left text-[18px] transition-colors ${
         active
-          ? "nav-active font-medium text-[#f2fff6]"
-          : "rounded-lg text-[#8fb69d] hover:bg-white/[0.03]"
+          ? "font-medium text-[var(--green-active)] hover:bg-[var(--nav-hover-bg)]"
+          : "rounded-lg text-[var(--text-nav)] hover:bg-[var(--nav-hover-bg)]"
       }`}
     >
       <Icon
-        size={16}
+        size={22}
         className={`shrink-0 ${
-          active ? "text-[#f2fff6]" : "text-[#6ecf8a]"
+          active ? "text-[var(--green-active)]" : "text-[var(--text-nav)]"
         }`}
         strokeWidth={1.6}
       />
       <span
         className={`flex-1 tracking-wide ${
-          !active ? "group-hover:text-[#d8ffe6]" : ""
+          !active ? "group-hover:text-[var(--nav-hover-text)]" : ""
         }`}
       >
         {label}
       </span>
       {!active && (
         <ChevronRight
-          size={13}
+          size={15}
           className="text-current opacity-40 group-hover:opacity-70"
           strokeWidth={1.8}
         />
@@ -131,7 +132,7 @@ function NavItem({
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div className="px-3.5 pb-1.5 pt-3 text-[10px] font-medium tracking-[0.22em] text-[#3f6650]">
+    <div className="px-3.5 pb-1.5 pt-3 text-[12px] font-semibold tracking-[0.22em] text-[#828f5b]">
       {children}
     </div>
   );
@@ -153,10 +154,10 @@ function NavSection({
   return (
     <div>
       {showDivider && (
-        <div className="mx-3 my-1 h-px bg-gradient-to-r from-transparent via-[#1d3d28] to-transparent" />
+        <div className="theme-divider mx-3 my-1 h-px" />
       )}
       <SectionLabel>{label}</SectionLabel>
-      <div className="space-y-1.5 px-3">
+      <div className="space-y-2 px-3">
         {items.map((item) => (
           <NavItem
             key={item.label}
@@ -176,35 +177,33 @@ export default function Sidebar() {
 
   return (
     <aside className="relative z-20 hidden h-dvh w-[268px] shrink-0 flex-col gap-3 bg-transparent p-3 lg:flex 2xl:w-[288px]">
-      {/* Top panel: logo + nav */}
-      <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-2xl border border-[#1d3d28]/80 bg-[#070d0a]/92 shadow-[0_0_0_1px_rgba(107,255,142,0.04)_inset] backdrop-blur-md">
-        {/* Header */}
-        <div className="flex items-center gap-3 border-b border-[#1d3d28]/70 px-4 py-4">
+      <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-2xl border border-border bg-[var(--bg-panel-translucent)] shadow-[0_0_0_1px_var(--shadow-inset)_inset] backdrop-blur-[var(--panel-blur-sidebar)] transition-colors">
+        <div className="flex items-center gap-3 border-b border-border px-4 py-4">
           <div className="relative size-10 shrink-0 overflow-hidden">
             <Image
               src={ASSETS.shamanProfile}
               alt="Shamanic AI"
               fill
+              unoptimized
               className="object-contain asset-glow"
-              sizes="40px"
+              sizes="120px"
               priority
             />
           </div>
           <div className="min-w-0">
-            <div className="text-[13px] font-semibold tracking-[0.12em] text-[#e8f5ec]">
+            <div className="text-[18px] font-semibold tracking-[0.12em] text-fg">
               SHAMANIC AI
             </div>
-            <div className="mt-0.5 text-[8px] tracking-[0.2em] text-[#5a7d68]">
+            <div className="mt-0.5 text-[8px] tracking-[0.2em] text-fg-dim">
               CONSCIOUSNESS INTERFACE
             </div>
           </div>
         </div>
 
-        {/* New Conversation */}
         <div className="px-3 pt-3.5 pb-1">
           <button
             type="button"
-            className="flex w-full items-center gap-2 rounded-lg border border-[#2f7a48]/70 bg-[#0c1812] px-3.5 py-2.5 text-[13px] text-[#6bff8e] transition-colors hover:border-[#6bff8e]/60 hover:bg-[#102018] hover:shadow-[0_0_18px_-6px_rgba(107,255,142,0.55)]"
+            className="flex w-full items-center gap-2 rounded-lg border border-border-accent bg-surface-elevated px-3.5 py-2.5 text-[13px] text-accent transition-colors hover:border-accent hover:bg-[var(--bg-elevated)] hover:shadow-[0_0_18px_-6px_var(--shadow-glow)]"
           >
             <Plus size={15} strokeWidth={2} />
             <span className="flex-1 text-left font-medium tracking-wide">
@@ -214,7 +213,6 @@ export default function Sidebar() {
           </button>
         </div>
 
-        {/* Nav */}
         <nav className="min-h-0 flex-1 overflow-y-auto pb-3">
           <NavSection
             label="MAIN"
@@ -239,26 +237,25 @@ export default function Sidebar() {
         </nav>
       </div>
 
-      {/* Bottom panel: Shamanic Core */}
-      <div className="shrink-0 rounded-2xl border border-[#1d3d28]/80 bg-[#070d0a]/92 p-4 shadow-[0_0_0_1px_rgba(107,255,142,0.04)_inset] backdrop-blur-md">
-        <div className="mb-3 text-[10px] font-medium tracking-[0.2em] text-[#5a7d68]">
+      <div className="shrink-0 rounded-2xl border border-border bg-[var(--bg-panel-translucent)] p-4 shadow-[0_0_0_1px_var(--shadow-inset)_inset] backdrop-blur-[var(--panel-blur-sidebar)] transition-colors">
+        <div className="mb-3 text-[10px] font-medium tracking-[0.2em] text-fg-dim">
           SHAMANIC CORE
         </div>
 
         <div className="mb-1.5 flex items-center justify-between text-[12px]">
-          <span className="text-[#8fb69d]">Consciousness Level</span>
-          <span className="font-semibold text-[#6bff8e]">{consciousness}%</span>
+          <span className="text-fg-muted">Consciousness Level</span>
+          <span className="font-semibold text-accent">{consciousness}%</span>
         </div>
-        <div className="mb-4 h-[6px] w-full overflow-hidden rounded-full bg-[#0c1812]">
+        <div className="mb-4 h-[6px] w-full overflow-hidden rounded-full bg-surface-elevated">
           <div
-            className="h-full rounded-full bg-[#6bff8e] shadow-[0_0_10px_2px_rgba(107,255,142,0.65),0_0_22px_4px_rgba(107,255,142,0.35)]"
+            className="theme-progress-glow h-full rounded-full bg-accent"
             style={{ width: `${consciousness}%` }}
           />
         </div>
 
         <div className="mb-2 flex items-center justify-between text-[12px]">
-          <span className="text-[#8fb69d]">Energy Flow</span>
-          <span className="font-semibold text-[#6bff8e]">High</span>
+          <span className="text-fg-muted">Energy Flow</span>
+          <span className="font-semibold text-accent">High</span>
         </div>
 
         <div className="relative h-10 w-full overflow-hidden">
@@ -270,9 +267,9 @@ export default function Sidebar() {
           >
             <defs>
               <linearGradient id="sidebarEnergyFill" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#6bff8e" stopOpacity="0.22" />
-                <stop offset="50%" stopColor="#6bff8e" stopOpacity="0.06" />
-                <stop offset="100%" stopColor="#6bff8e" stopOpacity="0" />
+                <stop offset="0%" stopColor="var(--green-core)" stopOpacity="0.22" />
+                <stop offset="50%" stopColor="var(--green-core)" stopOpacity="0.06" />
+                <stop offset="100%" stopColor="var(--green-core)" stopOpacity="0" />
               </linearGradient>
             </defs>
 

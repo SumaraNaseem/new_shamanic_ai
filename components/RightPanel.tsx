@@ -8,49 +8,54 @@ import { useEffect, useState } from "react";
 export function UpgradeCard() {
   return (
     <div className="glow-panel relative flex min-h-[76px] items-center gap-3 overflow-hidden rounded-xl py-2 pl-3.5 pr-1">
-      {/* Soft inner atmosphere */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0a1810]/80 via-transparent to-[#123c22]/40" />
-      <div className="pointer-events-none absolute -right-4 top-1/2 size-28 -translate-y-1/2 rounded-full bg-[#6bff8e]/15 blur-2xl" />
-      {/* Bottom neon shelf line */}
-      <div className="pointer-events-none absolute bottom-0 left-[12%] right-[8%] h-px bg-gradient-to-r from-transparent via-[#6bff8e]/90 to-transparent shadow-[0_0_10px_2px_rgba(107,255,142,0.55)]" />
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(to right, var(--gradient-upgrade-from), transparent, var(--gradient-upgrade-to))",
+        }}
+      />
+      <div className="pointer-events-none absolute -right-4 top-1/2 size-28 -translate-y-1/2 rounded-full bg-[color-mix(in_srgb,var(--green-core)_15%,transparent)] blur-2xl" />
+      <div
+        className="pointer-events-none absolute bottom-0 left-[12%] right-[8%] h-px shadow-[0_0_10px_2px_var(--shadow-glow)]"
+        style={{
+          background:
+            "linear-gradient(to right, transparent, color-mix(in srgb, var(--green-core) 90%, transparent), transparent)",
+        }}
+      />
 
-      {/* Left star / reticle (Element-style) */}
       <div className="relative z-10 size-11 shrink-0">
-        <svg viewBox="0 0 48 48" className="size-full drop-shadow-[0_0_8px_rgba(107,255,142,0.7)]">
+        <svg viewBox="0 0 48 48" className="size-full drop-shadow-[0_0_8px_var(--shadow-glow)]">
           <polygon
             points="24,4 28,16 40,16 30,24 34,36 24,28 14,36 18,24 8,16 20,16"
             fill="none"
-            stroke="#9dffb8"
+            stroke="var(--green-bright)"
             strokeWidth="1.2"
             opacity="0.35"
           />
-          <circle cx="24" cy="24" r="14" fill="none" stroke="#3f8a55" strokeWidth="0.8" />
+          <circle cx="24" cy="24" r="14" fill="none" stroke="var(--wave-mid)" strokeWidth="0.8" />
           <polygon
             points="24,8 26.5,21.5 40,24 26.5,26.5 24,40 21.5,26.5 8,24 21.5,21.5"
-            fill="#d4ffaa"
+            fill="var(--green-bright)"
             className="animate-pulse-slow"
           />
-          <circle cx="24" cy="24" r="2.2" fill="#6bff8e" />
+          <circle cx="24" cy="24" r="2.2" fill="var(--green-core)" />
         </svg>
       </div>
 
-      {/* Text */}
       <div className="relative z-10 min-w-0 flex-1 py-1">
-        <div className="text-[15px] font-semibold tracking-[0.08em] text-[#eafff0]">
+        <div className="text-[15px] font-semibold tracking-[0.08em] text-fg-bright">
           UPGRADE
         </div>
-        <div className="mt-0.5 text-[11px] text-[#6a8f74]">
-          Unlock Full Potential
-        </div>
+        <div className="mt-0.5 text-[11px] text-fg-dim">Unlock Full Potential</div>
       </div>
 
-      {/* Crystal from Figma (node 1:13) */}
       <div className="relative z-10 -mb-2 -mr-1 h-[78px] w-[72px] shrink-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={ASSETS.crystal}
           alt="Crystal"
-          className="absolute inset-0 h-full w-full object-contain object-bottom drop-shadow-[0_0_16px_rgba(107,255,142,0.55)]"
+          className="absolute inset-0 h-full w-full object-contain object-bottom drop-shadow-[0_0_16px_var(--shadow-glow)]"
         />
       </div>
     </div>
@@ -74,7 +79,6 @@ const rightStats = [
 export function ConsciousnessOverview() {
   return (
     <div className="glow-panel relative overflow-hidden rounded-xl p-5">
-      {/* Element 10 — smaller, centered background */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={ASSETS.element10}
@@ -82,44 +86,37 @@ export function ConsciousnessOverview() {
         aria-hidden
         className="pointer-events-none absolute top-[calc(50%+20px)] left-1/2 z-0 h-[68%] w-[68%] -translate-x-1/2 -translate-y-1/2 object-contain opacity-90"
       />
-      <div className="pointer-events-none absolute inset-0 z-0 bg-[#060a08]/25" />
 
       <div className="relative z-10 mb-3 flex items-center gap-2">
-        <div className="text-[11px] font-medium tracking-[0.18em] text-[#9dffb8]">
+        <div className="text-[11px] font-medium tracking-[0.18em] text-accent-bright">
           CONSCIOUSNESS OVERVIEW
         </div>
       </div>
-      <div className="relative z-10 mb-4 h-px w-full bg-gradient-to-r from-[#2f7a48]/80 via-[#6bff8e]/35 to-transparent" />
+      <div className="theme-gradient-line relative z-10 mb-4 h-px w-full" />
 
-      <div className="relative z-10 grid grid-cols-2 items-center gap-3 px-1 min-h-[140px]">
-        {/* Left metrics */}
+      <div className="relative z-10 grid min-h-[140px] grid-cols-2 items-center gap-3 px-1">
         <div className="flex flex-col items-start gap-4 pr-3">
           {leftStats.map((s) => (
             <div
               key={`l-${s.label}-${s.value}`}
               className="relative inline-flex flex-col items-start text-left"
             >
-              <div className="text-[10px] tracking-wide text-[#a8c9b0]">
-                {s.label}
-              </div>
-              <div className="mt-0.5 text-xs font-semibold leading-none text-[#6bff8e] text-glow">
+              <div className="text-[10px] tracking-wide text-fg-stat">{s.label}</div>
+              <div className="mt-0.5 text-xs font-semibold leading-none text-accent text-glow">
                 {s.value}%
               </div>
             </div>
           ))}
         </div>
 
-        {/* Right metrics */}
         <div className="flex flex-col items-end gap-4 pl-3">
           {rightStats.map((s) => (
             <div
               key={`r-${s.label}-${s.value}`}
               className="relative inline-flex flex-col items-start text-left"
             >
-              <div className="text-[10px] tracking-wide text-[#a8c9b0]">
-                {s.label}
-              </div>
-              <div className="mt-0.5 text-xs font-semibold leading-none text-[#6bff8e] text-glow">
+              <div className="text-[10px] tracking-wide text-fg-stat">{s.label}</div>
+              <div className="mt-0.5 text-xs font-semibold leading-none text-accent text-glow">
                 {s.value}%
               </div>
             </div>
@@ -133,7 +130,6 @@ export function ConsciousnessOverview() {
 export function EnergyCenter() {
   return (
     <div className="glow-panel relative overflow-hidden rounded-xl">
-      {/* Video background */}
       <video
         src="https://dw0klemfhjkst.cloudfront.net/feed_vision_vd.mp4"
         autoPlay
@@ -143,34 +139,30 @@ export function EnergyCenter() {
         aria-hidden
         className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center"
       />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#060a08]/50 via-transparent to-[#060a08]/75" />
 
-      {/* Header */}
       <div className="relative z-20 flex items-start justify-between px-3.5 pt-3">
-        <div className="text-[11px] font-medium tracking-[0.2em] text-[#9dffb8] drop-shadow-[0_0_8px_rgba(0,0,0,0.8)]">
+        <div className="text-[11px] font-medium tracking-[0.2em] text-accent-bright drop-shadow-[0_0_8px_var(--shadow-scrim)]">
           ENERGY CENTER
         </div>
       </div>
 
-      {/* Spacer for visual area over the video */}
       <div className="relative z-10 h-[168px]" />
 
-      {/* Footer — text left, bar right */}
       <div className="relative z-20 flex items-end gap-3 px-3.5 pb-3.5 pt-1">
         <div className="min-w-0 shrink-0">
-          <div className="text-xs font-medium text-[#9dffb8] drop-shadow-[0_0_8px_rgba(0,0,0,0.8)]">
+          <div className="text-xs font-medium text-accent-bright drop-shadow-[0_0_8px_var(--shadow-scrim)]">
             Balance: 88%
           </div>
-          <div className="mt-0.5 text-[10px] text-[#8fb69d] drop-shadow-[0_0_6px_rgba(0,0,0,0.8)]">
+          <div className="mt-0.5 text-[10px] text-fg-muted drop-shadow-[0_0_6px_var(--shadow-scrim)]">
             Harmonization Active
           </div>
         </div>
         <div className="mb-1 min-w-0 flex-1">
           <div className="mb-1 flex justify-end">
-            <span className="text-[10px] text-[#3f6650]">⟷</span>
+            <span className="text-[10px] text-fg-faint">⟷</span>
           </div>
-          <div className="h-1.5 w-full overflow-hidden rounded-full bg-[#0f1e14]/85">
-            <div className="h-full w-[88%] rounded-full bg-gradient-to-r from-[#2f7a48] to-[#6bff8e] shadow-[0_0_10px_rgba(107,255,142,0.55)]" />
+          <div className="h-1.5 w-full overflow-hidden rounded-full bg-[color-mix(in_srgb,var(--bg-track)_85%,transparent)]">
+            <div className="theme-bar-fill h-full w-[88%] rounded-full" />
           </div>
         </div>
       </div>
@@ -182,51 +174,45 @@ export function ShamanicMusic() {
   const [playing, setPlaying] = useState(true);
   return (
     <div className="glow-panel rounded-xl p-3.5">
-      {/* Header */}
       <div className="mb-2.5 flex items-center justify-between">
-        <span className="text-[11px] font-medium tracking-[0.18em] text-[#9dffb8]">
+        <span className="text-[11px] font-medium tracking-[0.18em] text-accent-bright">
           SHAMANIC MUSIC
         </span>
         <button
           type="button"
-          className="text-[#4c7a5c] transition-colors hover:text-[#6bff8e]"
+          className="text-fg-label transition-colors hover:text-accent"
           aria-label="Close"
         >
           <X size={12} strokeWidth={1.8} />
         </button>
       </div>
-      <div className="mb-3 h-px w-full bg-gradient-to-r from-[#2f7a48]/70 via-[#6bff8e]/25 to-transparent" />
+      <div className="theme-gradient-line mb-3 h-px w-full opacity-80" />
 
-      {/* Body: art left | info + controls right */}
       <div className="flex items-stretch gap-3">
-        {/* Album art */}
-        <div className="relative size-[88px] shrink-0 overflow-hidden rounded-lg border border-[#2f7a48]/45 bg-[#070d09]">
+        <div className="relative size-[88px] shrink-0 overflow-hidden rounded-lg border border-border-accent bg-[var(--bg-map)]">
           <Image
             src={ASSETS.image12}
             alt=""
             fill
+            unoptimized
             className="object-cover asset-glow"
             sizes="88px"
           />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(107,255,142,0.12),_transparent_70%)]" />
         </div>
 
-        {/* Track + controls */}
         <div className="flex min-w-0 flex-1 flex-col justify-between py-0.5">
           <div className="min-w-0">
-            <div className="truncate text-[14px] font-medium text-[#c9f5d6]">
+            <div className="truncate text-[14px] font-medium text-fg-soft">
               Forest Frequencies
             </div>
-            <div className="mt-0.5 text-[11px] text-[#5a7d68]">
-              Deep Resonance
-            </div>
+            <div className="mt-0.5 text-[11px] text-fg-dim">Deep Resonance</div>
           </div>
 
           <div className="mt-2 flex items-end justify-between gap-2">
             <div className="flex items-center gap-2.5">
               <button
                 type="button"
-                className="text-[#7fa48c] transition-colors hover:text-[#6bff8e]"
+                className="text-[var(--text-hud)] transition-colors hover:text-accent"
                 aria-label="Previous"
               >
                 <SkipBack size={14} fill="currentColor" />
@@ -234,7 +220,7 @@ export function ShamanicMusic() {
               <button
                 type="button"
                 onClick={() => setPlaying((p) => !p)}
-                className="flex size-8 items-center justify-center rounded-full border border-[#6bff8e]/70 bg-[#143222] text-[#6bff8e] shadow-[0_0_12px_rgba(107,255,142,0.45)] transition hover:brightness-110"
+                className="flex size-8 items-center justify-center rounded-full border border-border-bright bg-[var(--bg-play-btn)] text-accent shadow-[0_0_12px_var(--shadow-glow)] transition hover:brightness-110"
                 aria-label={playing ? "Pause" : "Play"}
               >
                 {playing ? (
@@ -245,14 +231,13 @@ export function ShamanicMusic() {
               </button>
               <button
                 type="button"
-                className="text-[#7fa48c] transition-colors hover:text-[#6bff8e]"
+                className="text-[var(--text-hud)] transition-colors hover:text-accent"
                 aria-label="Next"
               >
                 <SkipForward size={14} fill="currentColor" />
               </button>
             </div>
 
-            {/* Waveform visualizer */}
             <div className="flex h-5 items-end gap-[1.5px] pb-0.5">
               {Array.from({ length: 14 }).map((_, i) => (
                 <span
@@ -262,14 +247,11 @@ export function ShamanicMusic() {
                     height: `${30 + Math.abs(Math.sin(i * 0.85) * 70)}%`,
                     background:
                       i % 3 === 0
-                        ? "#6bff8e"
+                        ? "var(--green-core)"
                         : i % 2 === 0
-                          ? "#3f8a55"
-                          : "#2f7a48",
-                    boxShadow:
-                      i % 3 === 0
-                        ? "0 0 4px rgba(107,255,142,0.7)"
-                        : undefined,
+                          ? "var(--wave-mid)"
+                          : "var(--green-dim)",
+                    boxShadow: i % 3 === 0 ? "0 0 4px var(--shadow-glow)" : undefined,
                     animation: playing
                       ? `bar-pulse ${0.55 + (i % 4) * 0.12}s ease-in-out ${i * 0.04}s infinite`
                       : undefined,
@@ -319,7 +301,7 @@ export function WorldConnection() {
         translateX: Math.sin(sequenceIndex * 0.65) * 4,
         opacity: 1,
         scale: 2,
-        glow: "0 0 14px #6bff8e",
+        glow: "0 0 14px var(--green-core)",
       };
     }
     if (stepsBehind === 1) {
@@ -328,7 +310,7 @@ export function WorldConnection() {
         translateX: Math.sin(sequenceIndex * 0.65) * 2,
         opacity: 0.7,
         scale: 1.4,
-        glow: "0 0 8px #6bff8e",
+        glow: "0 0 8px var(--green-core)",
       };
     }
     if (stepsBehind === 2) {
@@ -337,7 +319,7 @@ export function WorldConnection() {
         translateX: 0,
         opacity: 0.5,
         scale: 1.15,
-        glow: "0 0 6px #6bff8e",
+        glow: "0 0 6px var(--green-core)",
       };
     }
     if (stepsBehind === total - 1) {
@@ -346,7 +328,7 @@ export function WorldConnection() {
         translateX: 0,
         opacity: 0.4,
         scale: 1,
-        glow: "0 0 5px #6bff8e88",
+        glow: "0 0 5px color-mix(in srgb, var(--green-core) 55%, transparent)",
       };
     }
     return {
@@ -354,17 +336,17 @@ export function WorldConnection() {
       translateX: 0,
       opacity: 0.22,
       scale: 1,
-      glow: "0 0 4px #6bff8e44",
+      glow: "0 0 4px color-mix(in srgb, var(--green-core) 28%, transparent)",
     };
   }
 
   return (
     <div className="glow-panel rounded-xl p-4">
       <div className="mb-3 flex items-center justify-between">
-        <span className="text-[11px] tracking-[0.2em] text-[#4c7a5c]">
+        <span className="text-[11px] tracking-[0.2em] text-fg-label">
           WORLD CONNECTION
         </span>
-        <X size={12} className="text-[#3f6650]" />
+        <X size={12} className="text-fg-faint" />
       </div>
       <div className="mb-3 flex items-center gap-2">
         <div className="relative size-18 shrink-0">
@@ -372,17 +354,18 @@ export function WorldConnection() {
             src={ASSETS.image12}
             alt=""
             fill
+            unoptimized
             className="object-contain"
             sizes="48px"
           />
         </div>
         <div className="min-w-0">
-          <div className="text-sm text-[#c9f5d6]">Global Consciousness</div>
-          <div className="text-[10px] text-[#5a7d68]">Active Connections</div>
+          <div className="text-sm text-fg-soft">Global Consciousness</div>
+          <div className="text-[10px] text-fg-dim">Active Connections</div>
         </div>
-        <span className="ml-auto text-sm font-medium text-[#6bff8e]">7.8B</span>
+        <span className="ml-auto text-sm font-medium text-accent">7.8B</span>
       </div>
-      <div className="relative h-24 overflow-hidden rounded-lg border border-[#123c22] bg-[#070d09]">
+      <div className="relative h-24 overflow-hidden rounded-lg border border-surface-deep bg-[var(--bg-map)]">
         <svg
           viewBox="0 0 100 60"
           className="absolute inset-0 size-full opacity-40"
@@ -393,25 +376,25 @@ export function WorldConnection() {
             rx="42"
             ry="22"
             fill="none"
-            stroke="#2f7a48"
+            stroke="var(--green-dim)"
             strokeWidth="0.4"
           />
           <path
             d="M12 30 Q 30 18 50 30 T 88 30"
             fill="none"
-            stroke="#2f7a48"
+            stroke="var(--green-dim)"
             strokeWidth="0.35"
           />
           <path
             d="M15 38 Q 35 28 50 38 T 85 38"
             fill="none"
-            stroke="#2f7a48"
+            stroke="var(--green-dim)"
             strokeWidth="0.35"
           />
           <path
             d="M18 22 Q 40 14 50 22 T 82 22"
             fill="none"
-            stroke="#2f7a48"
+            stroke="var(--green-dim)"
             strokeWidth="0.3"
           />
         </svg>
@@ -420,7 +403,7 @@ export function WorldConnection() {
           return (
             <span
               key={`${n.x}-${n.y}`}
-              className="absolute size-1.5 rounded-full bg-[#6bff8e]"
+              className="absolute size-1.5 rounded-full bg-accent"
               style={{
                 left: `${n.x}%`,
                 top: `${n.y}%`,

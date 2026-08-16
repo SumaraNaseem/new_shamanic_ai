@@ -6,11 +6,11 @@ export const ASSETS = {
   image12:
     "https://res.cloudinary.com/djlpb1ld5/image/upload/v1786501885/image12_gkhx4y.png",
   image13:
-    "https://res.cloudinary.com/djlpb1ld5/image/upload/v1786501890/image13_hzpsqk.png",
+    "https://res.cloudinary.com/djlpb1ld5/image/upload/w_96,h_96,c_fit,f_auto,q_auto/v1786501890/image13_hzpsqk.png",
   image14:
-    "https://res.cloudinary.com/djlpb1ld5/image/upload/v1786501890/image14_ujwfgg.png",
+    "https://res.cloudinary.com/djlpb1ld5/image/upload/w_160,h_160,c_fit,f_auto,q_auto/v1786501890/image14_ujwfgg.png",
   shamanProfile:
-    "https://res.cloudinary.com/djlpb1ld5/image/upload/v1786501890/shaman_profile_vl0xmt.png",
+    "https://res.cloudinary.com/djlpb1ld5/image/upload/w_80,h_80,c_fit,f_auto,q_auto/v1786827476/profile_m7mnb6.png",
   shamanManSm:
     "https://res.cloudinary.com/djlpb1ld5/image/upload/v1786501874/shaman-man-sm_caiaai.png",
   topBorder:
