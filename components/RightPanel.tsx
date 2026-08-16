@@ -88,7 +88,7 @@ export function ConsciousnessOverview() {
       />
 
       <div className="relative z-10 mb-3 flex items-center gap-2">
-        <div className="text-[11px] font-medium tracking-[0.18em] text-accent-bright">
+        <div className="text-[14px]   font-[600] text-green-200">
           CONSCIOUSNESS OVERVIEW
         </div>
       </div>
@@ -141,7 +141,7 @@ export function EnergyCenter() {
       />
 
       <div className="relative z-20 flex items-start justify-between px-3.5 pt-3">
-        <div className="text-[11px] font-medium tracking-[0.2em] text-accent-bright drop-shadow-[0_0_8px_var(--shadow-scrim)]">
+        <div className="text-[14px]   font-[600] text-green-200drop-shadow-[0_0_8px_var(--shadow-scrim)]">
           ENERGY CENTER
         </div>
       </div>
@@ -175,7 +175,7 @@ export function ShamanicMusic() {
   return (
     <div className="glow-panel rounded-xl p-3.5">
       <div className="mb-2.5 flex items-center justify-between">
-        <span className="text-[11px] font-medium tracking-[0.18em] text-accent-bright">
+        <span className="text-[14px]   font-[600] text-green-200">
           SHAMANIC MUSIC
         </span>
         <button
