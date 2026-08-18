@@ -44,10 +44,10 @@ export function UpgradeCard() {
       </div>
 
       <div className="relative z-10 min-w-0 flex-1 py-1">
-        <div className="text-[15px] font-semibold tracking-[0.08em] text-fg-bright">
+        <div className="text-[15px] font-semibold tracking-[0.08em] text-accent">
           UPGRADE
         </div>
-        <div className="mt-0.5 text-[11px] text-fg-dim">Unlock Full Potential</div>
+        <div className="mt-0.5 text-[11px] text-[#9dbc75]">Unlock Full Potential</div>
       </div>
 
       <div className="relative z-10 -mb-2 -mr-1 h-[78px] w-[72px] shrink-0">
