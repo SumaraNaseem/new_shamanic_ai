@@ -32,10 +32,13 @@ export default function Home() {
         <TopBar />
 
         <div className="mx-auto grid min-h-0 w-full max-w-[1800px] flex-1 grid-cols-1 gap-3 p-3 pb-2 md:gap-4 md:p-4 md:pb-2 lg:grid-cols-[220px_minmax(0,1fr)_270px] xl:grid-cols-[240px_minmax(0,1fr)_300px] 2xl:grid-cols-[260px_minmax(0,1fr)_320px]">
-          <aside className="hidden min-h-0 flex-col justify-end gap-3 overflow-y-auto overscroll-contain lg:flex">
-            <ActiveRituals />
-            <KnowledgeStream />
-            <VisionFeed />
+          <aside className="hidden min-h-0 flex-col overflow-y-auto overscroll-contain lg:flex">
+            <div className="h-[20%] shrink-0" />
+            <div className="flex flex-col gap-3">
+              <ActiveRituals />
+              <KnowledgeStream />
+              <VisionFeed />
+            </div>
           </aside>
 
           <CenterStage />

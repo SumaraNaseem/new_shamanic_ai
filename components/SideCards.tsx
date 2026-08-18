@@ -31,7 +31,7 @@ const knowledge: { name: string; pct: number; icon: LucideIcon }[] = [
 export function ActiveRituals() {
   return (
     <div className="glow-panel rounded-xl p-4">
-      <div className="mb-3 text-[14px] font-[600] text-green-200">
+      <div className="mb-3 text-[14px] font-[600] text-accent">
         ACTIVE RITUALS
       </div>
       <div className="space-y-2.5">
@@ -39,13 +39,13 @@ export function ActiveRituals() {
           const Icon = r.icon;
           return (
           <div key={r.name} className="flex items-center justify-between text-md">
-            <div className="flex items-center gap-2 text-fg-soft">
+            <div className="flex items-center gap-2 text-[#9dbc75]">
               <span className="icon-glow-blur">
                 <Icon size={14} strokeWidth={1.6} />
               </span>
               {r.name}
             </div>
-            <span className="font-body text-xs tabular-nums text-fg-dim">
+            <span className="font-body text-xs tabular-nums text-[#9dbc75]">
               {r.time}
             </span>
           </div>
@@ -62,7 +62,7 @@ export function ActiveRituals() {
 export function KnowledgeStream() {
   return (
     <div className="glow-panel rounded-xl p-4">
-      <div className="mb-3 mb-3 text-[14px] font-[600] text-green-200">
+      <div className="mb-3 mb-3 text-[14px] font-[600] text-accent">
         KNOWLEDGE STREAM
       </div>
       <div className="space-y-3">
@@ -71,7 +71,7 @@ export function KnowledgeStream() {
           return (
           <div key={k.name}>
             <div className="mb-1 flex items-center justify-between text-md">
-              <div className="flex items-center gap-2 text-fg-soft">
+              <div className="flex items-center gap-2 text-[#9dbc75]">
                 <span className="icon-glow-blur">
                   <Icon size={14} strokeWidth={1.6} />
                 </span>
@@ -101,15 +101,15 @@ export function VisionFeed() {
   return (
     <div className="glow-panel rounded-xl p-4">
       <div className="mb-3 flex items-center justify-between">
-        <span className="mb-3 text-[14px] font-[600] text-green-200">
+        <span className="mb-3 text-[14px] font-[600] text-accent">
           VISION FEED
         </span>
-        <ChevronRight size={13} className="text-fg-label" />
+        <ChevronRight size={13} className="text-accent" />
       </div>
       <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-surface-deep">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/assets/Vision_feed.gif"
+          src="https://dw0klemfhjkst.cloudfront.net/Vision%2Bfeed%2B%281%29.gif"
           alt="Vision feed"
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -117,7 +117,7 @@ export function VisionFeed() {
       <div className="mt-3 flex items-center justify-center gap-3">
         <button
           onClick={() => setIdx((i) => Math.max(0, i - 1))}
-          className="text-fg-label transition-colors hover:text-accent"
+          className="text-accent transition-colors hover:text-accent"
         >
           <ChevronLeft size={14} />
         </button>
@@ -131,7 +131,7 @@ export function VisionFeed() {
         ))}
         <button
           onClick={() => setIdx((i) => Math.min(2, i + 1))}
-          className="text-fg-label transition-colors hover:text-accent"
+          className="text-accent transition-colors hover:text-accent"
         >
           <ChevronRight size={14} />
         </button>

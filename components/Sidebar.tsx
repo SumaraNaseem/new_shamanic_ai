@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Plus,
   CloudMoon,
   FileText,
   BarChart3,
@@ -179,7 +178,7 @@ export default function Sidebar() {
     <aside className="relative z-20 hidden h-dvh w-[268px] shrink-0 flex-col gap-3 bg-transparent p-3 lg:flex 2xl:w-[288px]">
       <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-2xl border border-border bg-[var(--bg-panel-translucent)] shadow-[0_0_0_1px_var(--shadow-inset)_inset] backdrop-blur-[var(--panel-blur-sidebar)] transition-colors">
         <div className="flex items-center gap-3 border-b border-border px-4 py-4">
-          <div className="relative size-10 shrink-0 overflow-hidden">
+          <div className="relative size-14 shrink-0 overflow-hidden">
             <Image
               src={ASSETS.shamanProfile}
               alt="Shamanic AI"
@@ -194,7 +193,7 @@ export default function Sidebar() {
             <div className="text-[18px] font-semibold tracking-[0.12em] text-fg">
               SHAMANIC AI
             </div>
-            <div className="mt-0.5 text-[8px] tracking-[0.2em] text-fg-dim">
+            <div className="mt-0.5 text-[8px] tracking-[0.2em] text-fg-muted">
               CONSCIOUSNESS INTERFACE
             </div>
           </div>
@@ -203,13 +202,14 @@ export default function Sidebar() {
         <div className="px-3 pt-3.5 pb-1">
           <button
             type="button"
-            className="flex w-full items-center gap-2 rounded-lg border border-border-accent bg-surface-elevated px-3.5 py-2.5 text-[13px] text-accent transition-colors hover:border-accent hover:bg-[var(--bg-elevated)] hover:shadow-[0_0_18px_-6px_var(--shadow-glow)]"
+            className="flex w-full items-center gap-2 rounded-lg   border-border-accent bg-surface-elevated px-3.5 py-2.5 text-[13px] text-accent transition-colors hover:border-accent hover:bg-[var(--bg-elevated)] hover:shadow-[0_0_18px_-6px_var(--shadow-glow)]"
           >
-            <Plus size={15} strokeWidth={2} />
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48" fill="currentColor" aria-hidden>
+              <path d="M 24 4 C 12.972066 4 4 12.972074 4 24 C 4 35.027926 12.972066 44 24 44 C 35.027934 44 44 35.027926 44 24 C 44 12.972074 35.027934 4 24 4 z M 24 7 C 33.406615 7 41 14.593391 41 24 C 41 33.406609 33.406615 41 24 41 C 14.593385 41 7 33.406609 7 24 C 7 14.593391 14.593385 7 24 7 z M 23.976562 13.978516 A 1.50015 1.50015 0 0 0 22.5 15.5 L 22.5 22.5 L 15.5 22.5 A 1.50015 1.50015 0 1 0 15.5 25.5 L 22.5 25.5 L 22.5 32.5 A 1.50015 1.50015 0 1 0 25.5 32.5 L 25.5 25.5 L 32.5 25.5 A 1.50015 1.50015 0 1 0 32.5 22.5 L 25.5 22.5 L 25.5 15.5 A 1.50015 1.50015 0 0 0 23.976562 13.978516 z" />
+            </svg>
             <span className="flex-1 text-left font-medium tracking-wide">
               New Conversation
             </span>
-            <ChevronRight size={14} strokeWidth={1.8} className="opacity-70" />
           </button>
         </div>
 
@@ -238,7 +238,7 @@ export default function Sidebar() {
       </div>
 
       <div className="shrink-0 rounded-2xl border border-border bg-[var(--bg-panel-translucent)] p-4 shadow-[0_0_0_1px_var(--shadow-inset)_inset] backdrop-blur-[var(--panel-blur-sidebar)] transition-colors">
-        <div className="mb-3 text-[10px] font-medium tracking-[0.2em] text-fg-dim">
+        <div className="mb-3 text-[10px] font-medium tracking-[0.2em] text-accent">
           SHAMANIC CORE
         </div>
 

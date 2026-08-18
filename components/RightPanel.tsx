@@ -84,11 +84,12 @@ export function ConsciousnessOverview() {
         src={ASSETS.element10}
         alt=""
         aria-hidden
-        className="pointer-events-none absolute top-[calc(50%+20px)] left-1/2 z-0 h-[68%] w-[68%] -translate-x-1/2 -translate-y-1/2 object-contain opacity-90"
+        className="pointer-events-none absolute top-[calc(50%+20px)] left-1/2 z-0 h-[68%] w-[68%] -translate-x-1/2 -translate-y-1/2 object-contain opacity-100"
+        style={{ filter: "drop-shadow(0 0 18px rgba(0,255,100,0.7)) drop-shadow(0 0 40px rgba(0,255,100,0.35)) brightness(1.15)" }}
       />
 
       <div className="relative z-10 mb-3 flex items-center gap-2">
-        <div className="text-[14px]   font-[600] text-green-200">
+        <div className="text-[14px] font-[600] text-accent">
           CONSCIOUSNESS OVERVIEW
         </div>
       </div>
@@ -101,7 +102,7 @@ export function ConsciousnessOverview() {
               key={`l-${s.label}-${s.value}`}
               className="relative inline-flex flex-col items-start text-left"
             >
-              <div className="text-[10px] tracking-wide text-fg-stat">{s.label}</div>
+              <div className="text-[10px] tracking-wide text-[#9dbc75]">{s.label}</div>
               <div className="mt-0.5 text-xs font-semibold leading-none text-accent text-glow">
                 {s.value}%
               </div>
@@ -115,7 +116,7 @@ export function ConsciousnessOverview() {
               key={`r-${s.label}-${s.value}`}
               className="relative inline-flex flex-col items-start text-left"
             >
-              <div className="text-[10px] tracking-wide text-fg-stat">{s.label}</div>
+              <div className="text-[10px] tracking-wide text-[#9dbc75]">{s.label}</div>
               <div className="mt-0.5 text-xs font-semibold leading-none text-accent text-glow">
                 {s.value}%
               </div>
@@ -141,7 +142,7 @@ export function EnergyCenter() {
       />
 
       <div className="relative z-20 flex items-start justify-between px-3.5 pt-3">
-        <div className="text-[14px]   font-[600] text-green-200drop-shadow-[0_0_8px_var(--shadow-scrim)]">
+        <div className="text-[14px] font-[600] text-accent">
           ENERGY CENTER
         </div>
       </div>
@@ -153,13 +154,13 @@ export function EnergyCenter() {
           <div className="text-xs font-medium text-accent-bright drop-shadow-[0_0_8px_var(--shadow-scrim)]">
             Balance: 88%
           </div>
-          <div className="mt-0.5 text-[10px] text-fg-muted drop-shadow-[0_0_6px_var(--shadow-scrim)]">
+          <div className="mt-0.5 text-[10px] text-[#9dbc75] drop-shadow-[0_0_6px_var(--shadow-scrim)]">
             Harmonization Active
           </div>
         </div>
         <div className="mb-1 min-w-0 flex-1">
           <div className="mb-1 flex justify-end">
-            <span className="text-[10px] text-fg-faint">⟷</span>
+            <span className="text-[10px] text-[#9dbc75]">⟷</span>
           </div>
           <div className="h-1.5 w-full overflow-hidden rounded-full bg-[color-mix(in_srgb,var(--bg-track)_85%,transparent)]">
             <div className="theme-bar-fill h-full w-[88%] rounded-full" />
@@ -175,7 +176,7 @@ export function ShamanicMusic() {
   return (
     <div className="glow-panel rounded-xl p-3.5">
       <div className="mb-2.5 flex items-center justify-between">
-        <span className="text-[14px]   font-[600] text-green-200">
+        <span className="text-[14px] font-[600] text-accent">
           SHAMANIC MUSIC
         </span>
         <button
@@ -202,17 +203,17 @@ export function ShamanicMusic() {
 
         <div className="flex min-w-0 flex-1 flex-col justify-between py-0.5">
           <div className="min-w-0">
-            <div className="truncate text-[14px] font-medium text-fg-soft">
+            <div className="truncate text-[14px] font-medium text-[#9dbc75]">
               Forest Frequencies
             </div>
-            <div className="mt-0.5 text-[11px] text-fg-dim">Deep Resonance</div>
+            <div className="mt-0.5 text-[11px] text-[#9dbc75]">Deep Resonance</div>
           </div>
 
           <div className="mt-2 flex items-end justify-between gap-2">
             <div className="flex items-center gap-2.5">
               <button
                 type="button"
-                className="text-[var(--text-hud)] transition-colors hover:text-accent"
+                className="text-[#9dbc75] transition-colors hover:text-accent"
                 aria-label="Previous"
               >
                 <SkipBack size={14} fill="currentColor" />
@@ -231,7 +232,7 @@ export function ShamanicMusic() {
               </button>
               <button
                 type="button"
-                className="text-[var(--text-hud)] transition-colors hover:text-accent"
+                className="text-[#9dbc75] transition-colors hover:text-accent"
                 aria-label="Next"
               >
                 <SkipForward size={14} fill="currentColor" />
@@ -343,7 +344,7 @@ export function WorldConnection() {
   return (
     <div className="glow-panel rounded-xl p-4">
       <div className="mb-3 flex items-center justify-between">
-        <span className="text-[11px] tracking-[0.2em] text-fg-label">
+        <span className="text-[11px] tracking-[0.2em] text-accent">
           WORLD CONNECTION
         </span>
         <X size={12} className="text-fg-faint" />
@@ -360,8 +361,8 @@ export function WorldConnection() {
           />
         </div>
         <div className="min-w-0">
-          <div className="text-sm text-fg-soft">Global Consciousness</div>
-          <div className="text-[10px] text-fg-dim">Active Connections</div>
+          <div className="text-sm text-[#9dbc75]">Global Consciousness</div>
+          <div className="text-[10px] text-[#9dbc75]">Active Connections</div>
         </div>
         <span className="ml-auto text-sm font-medium text-accent">7.8B</span>
       </div>
